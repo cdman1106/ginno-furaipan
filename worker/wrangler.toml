@@ -1,0 +1,25 @@
+name = "ginno-furaipan-instagram"
+main = "instagram-worker.js"
+compatibility_date = "2026-09-16"
+
+[vars]
+# Set this to the public origin of the website after deployment.
+SITE_ORIGIN = "*"
+# Optional. Update only if Meta requires a newer supported Graph API version.
+IG_GRAPH_VERSION = "v25.0"
+# Optional. This can point to the Instagram tester invitation page shown to the shop owner.
+IG_TESTER_INVITE_URL = "https://www.instagram.com/accounts/manage_access/"
+
+[[kv_namespaces]]
+binding = "IG_STORE"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"
+
+[triggers]
+crons = ["*/10 * * * *"]
+
+# Add these with `wrangler secret put` or in Cloudflare Dashboard > Variables and Secrets:
+# IG_APP_ID
+# IG_APP_SECRET
+# IG_REDIRECT_URI
+# CONNECT_KEY
